@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 年度計畫</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --text-dark: #3D3225;
+  --text-mid: #8B7B68;
+  --text-light: #A89880;
+  --shadow: 0 2px 16px rgba(61,50,37,0.08);
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(160deg, #F5E6D3 0%, #EDE0D0 45%, #E0D2C0 100%);
+  font-family: 'Noto Sans TC', sans-serif;
+  color: var(--text-dark);
+  padding: 40px 16px 80px;
+}
+
+.header { text-align: center; margin-bottom: 28px; }
+.header h1 { font-size: clamp(26px,5vw,38px); font-weight: 900; letter-spacing: -0.5px; margin-bottom: 6px; }
+.header p { font-size: 13px; color: var(--text-mid); font-weight: 300; line-height: 1.7; }
+
+.panel {
+  max-width: 680px; margin: 0 auto 20px;
+  background: rgba(255,255,255,0.52);
+  backdrop-filter: blur(10px);
+  border-radius: 16px; padding: 18px 22px;
+  box-shadow: var(--shadow);
+}
+
+.prog-label { display:flex; justify-content:space-between; font-size:12px; color:var(--text-mid); font-weight:500; margin-bottom:8px; }
+.prog-bg { height:8px; border-radius:99px; background:rgba(61,50,37,0.1); overflow:hidden; }
+.prog-fill { height:100%; border-radius:99px; background:linear-gradient(90deg,#7BA0A8,#A67B5B); transition:width .4s ease; }
+
+.tl-title { font-size:11px; font-weight:700; color:var(--text-mid); letter-spacing:1px; margin-bottom:10px; }
+.tl-grid { display:grid; grid-template-columns:52px repeat(9,1fr); row-gap:2px; }
+.tl-mh { font-size:10px; text-align:center; color:var(--text-light); font-weight:500; padding-bottom:4px; }
+.tl-lbl { font-size:10px; font-weight:700; text-align:right; padding-right:8px; white-space:nowrap; display:flex; align-items:center; justify-content:flex-end; height:24px; }
+.tl-cell { height:24px; display:flex; align-items:center; justify-content:center; }
+.tl-bar { height:18px; width:100%; opacity:.82; }
+.tl-bar.s  { border-radius:9px 0 0 9px; }
+.tl-bar.e  { border-radius:0 9px 9px 0; }
+.tl-bar.se { border-radius:9px; }
+.tl-mk { font-size:12px; line-height:1; }
+.tl-subs { margin-top:8px; padding-left:52px; display:flex; flex-direction:column; gap:2px; }
+.tl-sub { font-size:10px; color:var(--text-light); line-height:1.6; }
+
+.cards { max-width:680px; margin:0 auto; display:flex; flex-direction:column; gap:10px; }
+
+.card {
+  background: rgba(255,255,255,0.52); backdrop-filter:blur(10px);
+  border-radius:18px; border:1.5px solid transparent;
+  box-shadow:var(--shadow); overflow:hidden; transition:border-color .2s, box-shadow .2s;
+}
+.card.open { box-shadow:0 4px 24px rgba(61,50,37,0.13); }
+.card-stripe { height:4px; }
+.card-hd {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:13px 20px; cursor:pointer; user-select:none; gap:10px;
+}
+.card-hd:hover { background:rgba(255,255,255,0.3); }
+.card-hd-left { display:flex; align-items:center; gap:9px; flex-wrap:wrap; flex:1; min-width:0; }
+.m-label { font-size:20px; font-weight:900; min-width:52px; flex-shrink:0; }
+.tags { display:flex; gap:5px; flex-wrap:wrap; }
+.tag { font-size:10px; padding:2px 9px; border-radius:8px; font-weight:700; white-space:nowrap; }
+.phase-nm { font-size:11px; color:var(--text-light); }
+.mini-prog { font-size:10px; color:var(--text-light); white-space:nowrap; flex-shrink:0; }
+.chevron { font-size:18px; color:var(--text-mid); transition:transform .22s; flex-shrink:0; line-height:1; }
+.card.open .chevron { transform:rotate(90deg); }
+
+.card-bd { display:none; padding:0 20px 18px; }
+.card.open .card-bd { display:block; }
+
+.wk-note { display:inline-block; font-size:11px; color:var(--text-mid); background:rgba(0,0,0,0.04); border-radius:8px; padding:4px 12px; margin-bottom:12px; }
+
+.todo-list { display:flex; flex-direction:column; gap:5px; }
+.todo-item { display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:10px; cursor:pointer; transition:background .15s; }
+.todo-item:hover { background:rgba(255,255,255,0.5); }
+.todo-item.light { opacity:.5; }
+.todo-item.done  { opacity:.42; }
+
+.chk { width:20px; height:20px; border-radius:6px; border:2px solid currentColor; flex-shrink:0; display:flex; align-items:center; justify-content:center; transition:background .15s; }
+.chk-tick { display:none; font-size:11px; color:#fff; font-weight:900; line-height:1; }
+.todo-item.done .chk { background:currentColor; }
+.todo-item.done .chk-tick { display:block; }
+
+.todo-txt { flex:1; font-size:13px; line-height:1.55; }
+.todo-item.done .todo-txt { text-decoration:line-through; color:var(--text-light); }
+
+.item-tag { font-size:9px; padding:2px 8px; border-radius:7px; font-weight:700; flex-shrink:0; opacity:.75; }
+.light-note { font-size:10px; color:var(--text-light); font-style:italic; margin-top:5px; padding-left:10px; }
+
+.footer { max-width:680px; margin:20px auto 0; background:rgba(61,50,37,0.06); border-radius:16px; padding:18px 22px; font-size:12px; color:#5C4A32; line-height:1.9; }
+.footer-title { font-size:13px; font-weight:700; margin-bottom:8px; }
+
+@media(max-width:480px){
+  body { padding:20px 12px 60px; }
+  .card-hd { padding:12px 14px; }
+  .card-bd { padding:0 14px 14px; }
+  .tl-grid { grid-template-columns:42px repeat(9,1fr); }
+  .tl-lbl { font-size:9px; padding-right:5px; }
+  .tl-mh { font-size:9px; }
+  .tl-subs { padding-left:42px; }
+  .panel { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>2026 年度計畫</h1>
+  <p>每月最多兩條主線 · 各項目錯開不重疊<br>考量每週 3 晚運動 + 在職，可用時間 ≈ 1-2 晚 + 週末</p>
+</div>
+
+<div class="panel">
+  <div class="prog-label">
+    <span>整體進度</span>
+    <span id="global-pct">0 / 0 完成</span>
+  </div>
+  <div class="prog-bg"><div class="prog-fill" id="global-bar" style="width:0%"></div></div>
+</div>
+
+<div class="panel" id="tl-panel"></div>
+
+<div class="cards" id="cards"></div>
+
+<div class="footer">
+  <div class="footer-title">📐 排程邏輯</div>
+  <div>→ <strong>4-5 月各完成一個 Vibe Coding 專案</strong>，作為作品集補充素材</div>
+  <div>→ <strong>作品集 7 月完成</strong>：4 月架構 → 5-6 月內容更新 → 7 月最終修正上線</div>
+  <div>→ <strong>商用英文課程</strong>（6-7 月，評估中）彈性安排</div>
+  <div>→ <strong>職涯教練模擬面試</strong>安排在 8 月，正式大量投遞前完成</div>
+  <div>→ <strong>健康：</strong>6 月牙齒檢查、12 月健康檢查，分散全年</div>
+  <div>→ <strong>時程：</strong>8-9 月練習投遞 → 10-11 月主力面試 → 收 offer 談判（約 1 個月後到職）→ 2027 農曆年後 ✓</div>
+  <div>→ 每週扣掉 3 晚運動，實際可用 ≈ <strong>1-2 個平日晚上 + 週末</strong></div>
+</div>
+
+<script>
+const TAG = {
+  job:     { label:"求職",      bg:"#3D3225", fg:"#F5E6D3" },
+  travel:  { label:"旅行",      bg:"#7BA0A8", fg:"#fff" },
+  code:    { label:"Vibe",      bg:"#4A6FA5", fg:"#fff" },
+  english: { label:"商用英文",  bg:"#B5874A", fg:"#fff" },
+  health:  { label:"健康",      bg:"#6A9E7A", fg:"#fff" },
+  coach:   { label:"職涯教練",  bg:"#7A5C8A", fg:"#fff" },
+  drive:   { label:"駕照",      bg:"#5B7B6A", fg:"#fff" },
+  massage: { label:"按摩",      bg:"#8B6F8B", fg:"#fff" },
+  life:    { label:"生活",      bg:"#A08060", fg:"#fff" },
+};
+
+const ACCENT = {
+  early:"#7BA0A8", prep:"#A67B5B", apply:"#8B6914", interview:"#6B5B3E", wrap:"#5C4A32"
+};
+
+const MONTHS = [
+  { num:4,  label:"四月",   phase:"early",     phaseName:"素材準備啟動",
+    tracks:["job","travel","code"], weekNote:"第 1 週出國 → 第 2-4 週開工",
+    items:[
+      { text:"出國旅遊（第 1 週）",                    tag:"travel" },
+      { text:"作品集網站優化開始（架構規劃＋內容盤點）", tag:"job" },
+      { text:"Web3 產業研究 & 目標公司清單",            tag:"job" },
+      { text:"Vibe Coding 專案 #1 啟動",               tag:"code" },
+    ]},
+  { num:5,  label:"五月",   phase:"early",     phaseName:"素材準備",
+    tracks:["job","travel","code"], weekNote:"第 1-2 週做事 → 第 3 週出國 → 第 4 週收尾",
+    items:[
+      { text:"作品集網站優化持續（視覺 & 內容更新）",   tag:"job" },
+      { text:"作品簡報 / 自介簡報開始製作",             tag:"job" },
+      { text:"Vibe Coding 專案 #2 啟動",               tag:"code" },
+      { text:"出國旅遊（第 3 週）",                     tag:"travel" },
+      { text:"聯絡內推管道、建立人脈清單",               tag:"job", light:true },
+    ]},
+  { num:6,  label:"六月",   phase:"prep",      phaseName:"素材收尾",
+    tracks:["job","english"], weekNote:"完整四週可用",
+    items:[
+      { text:"作品集網站持續更新",             tag:"job" },
+      { text:"作品簡報 / 自介簡報完成",         tag:"job" },
+      { text:"Cover letter 模板 & 客製化練習",  tag:"job" },
+      { text:"商用英文課程（評估中）",           tag:"english", light:true },
+      { text:"牙齒檢查",                       tag:"health" },
+    ]},
+  { num:7,  label:"七月",   phase:"prep",      phaseName:"素材完成 + 面試訓練",
+    tracks:["job","english"], weekNote:"完整四週可用",
+    items:[
+      { text:"作品集網站最終修正上線",           tag:"job" },
+      { text:"英文面試準備 & 基礎面試練習",      tag:"job" },
+      { text:"深度面試模擬 & 案例演練",          tag:"job" },
+      { text:"履歷最終版確認",                  tag:"job" },
+      { text:"商用英文課程（評估中）",            tag:"english", light:true },
+    ]},
+  { num:8,  label:"八月",   phase:"apply",     phaseName:"第一波投遞",
+    tracks:["job","drive","coach"], weekNote:"平日投遞＋週末練車",
+    items:[
+      { text:"職涯教練模擬面試（至少 1 場）",    tag:"coach" },
+      { text:"Web3 Designer 職缺第一波投遞",     tag:"job" },
+      { text:"作品集依職缺需求微調",             tag:"job" },
+      { text:"駕照練習開始（週末為主）",          tag:"drive" },
+    ]},
+  { num:9,  label:"九月",   phase:"apply",     phaseName:"持續投遞",
+    tracks:["job","drive"], weekNote:"九月出國視情況彈性安排",
+    items:[
+      { text:"持續投遞 + 擴大一般 UI/UX 職缺",  tag:"job" },
+      { text:"面試實戰 & 覆盤調整",              tag:"job" },
+      { text:"駕照練習持續",                    tag:"drive" },
+      { text:"九月出國（若確定，彈性穿插）",      tag:"travel", light:true },
+    ]},
+  { num:10, label:"十月",   phase:"interview", phaseName:"面試密集期",
+    tracks:["job","massage"], weekNote:"面試為最優先",
+    items:[
+      { text:"面試密集期：深度面試 & 談 offer",  tag:"job" },
+      { text:"作品集 / 簡報秋季版更新",          tag:"job" },
+      { text:"按摩課程開始",                    tag:"massage" },
+    ]},
+  { num:11, label:"十一月", phase:"interview", phaseName:"收 offer",
+    tracks:["job","massage"], weekNote:"等結果的空檔做按摩",
+    items:[
+      { text:"持續面試 / 等待 & 談 offer",      tag:"job" },
+      { text:"作品集年度更新（主要版本）",        tag:"job" },
+      { text:"按摩課程持續",                    tag:"massage" },
+    ]},
+  { num:12, label:"十二月", phase:"wrap",      phaseName:"收尾＋規劃",
+    tracks:["life","health"], weekNote:"減壓＋展望",
+    items:[
+      { text:"確認 offer / 談判到職時間",       tag:"job" },
+      { text:"健康檢查",                       tag:"health" },
+      { text:"年度總結（作品集 / IG / 技能）",   tag:"life" },
+      { text:"規劃 2027 年目標",                tag:"life" },
+      { text:"若已到職 → 新工作技能提升",        tag:"job", light:true },
+    ]},
+];
+
+const TRACKS = [
+  { label:"求職",     ranges:[[4,12]], color:"#3D3225", sub:"4-5 素材 → 6-7 完成＋面試練習 → 8-9 投遞 → 10-11 面試" },
+  { label:"Vibe",     ranges:[[4,5]],  color:"#4A6FA5", sub:"各完成一個專案作品" },
+  { label:"商用英文", ranges:[[6,7]],  color:"#B5874A", sub:"評估中，彈性安排" },
+  { label:"駕照",     ranges:[[8,9]],  color:"#5B7B6A", sub:"週末為主" },
+  { label:"按摩",     ranges:[[10,11]],color:"#8B6F8B", sub:"等 offer 的減壓期" },
+];
+const MNS = [4,5,6,7,8,9,10,11,12];
+const HEALTH_MK = {6:"🦷", 12:"🏥"};
+const TRAVEL_MK = {4:"✈️初", 5:"✈️中", 9:"✈️?"};
+
+const SK = "plan2026v2";
+let done = new Set(JSON.parse(localStorage.getItem(SK) || "[]"));
+const save = () => localStorage.setItem(SK, JSON.stringify([...done]));
+const key  = (n, i) => n + "-" + i;
+
+function buildTimeline() {
+  const panel = document.getElementById("tl-panel");
+  panel.innerHTML = "";
+
+  const title = document.createElement("div");
+  title.className = "tl-title";
+  title.textContent = "時間分佈總覽";
+  panel.appendChild(title);
+
+  const grid = document.createElement("div");
+  grid.className = "tl-grid";
+
+  function addRow(labelText, labelColor, cellFn) {
+    const lbl = document.createElement("div");
+    lbl.className = "tl-lbl";
+    lbl.style.color = labelColor;
+    lbl.textContent = labelText;
+    grid.appendChild(lbl);
+    MNS.forEach(function(m) {
+      const c = document.createElement("div");
+      c.className = "tl-cell";
+      cellFn(c, m);
+      grid.appendChild(c);
+    });
+  }
+
+  // empty corner + month headers
+  grid.appendChild(document.createElement("div"));
+  MNS.forEach(function(m) {
+    const d = document.createElement("div");
+    d.className = "tl-mh";
+    d.textContent = m + "月";
+    grid.appendChild(d);
+  });
+
+  // health row
+  addRow("健康", "#6A9E7A", function(c, m) {
+    if (HEALTH_MK[m]) {
+      const s = document.createElement("span");
+      s.className = "tl-mk";
+      s.textContent = HEALTH_MK[m];
+      c.appendChild(s);
+    }
+  });
+
+  // travel row
+  addRow("旅行", "#7BA0A8", function(c, m) {
+    if (TRAVEL_MK[m]) {
+      const s = document.createElement("span");
+      s.className = "tl-mk";
+      s.textContent = TRAVEL_MK[m];
+      if (m === 9) { s.style.fontSize = "10px"; s.style.color = "#7BA0A8"; }
+      c.appendChild(s);
+    }
+  });
+
+  // track bars
+  TRACKS.forEach(function(tr) {
+    addRow(tr.label, tr.color, function(c, m) {
+      const active = tr.ranges.some(function(r) { return m >= r[0] && m <= r[1]; });
+      if (!active) return;
+      const isS = tr.ranges.some(function(r) { return m === r[0]; });
+      const isE = tr.ranges.some(function(r) { return m === r[1]; });
+      const bar = document.createElement("div");
+      bar.className = "tl-bar " + (isS && isE ? "se" : isS ? "s" : isE ? "e" : "");
+      bar.style.background = tr.color;
+      c.appendChild(bar);
+    });
+  });
+
+  panel.appendChild(grid);
+
+  const subs = document.createElement("div");
+  subs.className = "tl-subs";
+  TRACKS.forEach(function(tr) {
+    const d = document.createElement("div");
+    d.className = "tl-sub";
+    d.innerHTML = "<b style='color:" + tr.color + "'>" + tr.label + "</b> — " + tr.sub;
+    subs.appendChild(d);
+  });
+  panel.appendChild(subs);
+}
+
+function buildCards() {
+  const container = document.getElementById("cards");
+  container.innerHTML = "";
+
+  MONTHS.forEach(function(m) {
+    const accent = ACCENT[m.phase];
+    const total = m.items.length;
+    const dc = m.items.filter(function(_, i) { return done.has(key(m.num, i)); }).length;
+
+    const card = document.createElement("div");
+    card.className = "card";
+    card.dataset.num = m.num;
+
+    const stripe = document.createElement("div");
+    stripe.className = "card-stripe";
+    stripe.style.background = accent;
+    card.appendChild(stripe);
+
+    const hd = document.createElement("div");
+    hd.className = "card-hd";
+
+    const left = document.createElement("div");
+    left.className = "card-hd-left";
+
+    const mlbl = document.createElement("div");
+    mlbl.className = "m-label";
+    mlbl.textContent = m.label;
+    left.appendChild(mlbl);
+
+    const tagsEl = document.createElement("div");
+    tagsEl.className = "tags";
+    m.tracks.forEach(function(t) {
+      const tc = TAG[t];
+      const tg = document.createElement("span");
+      tg.className = "tag";
+      tg.style.background = tc.bg;
+      tg.style.color = tc.fg;
+      tg.textContent = tc.label;
+      tagsEl.appendChild(tg);
+    });
+    left.appendChild(tagsEl);
+
+    const pnm = document.createElement("span");
+    pnm.className = "phase-nm";
+    pnm.textContent = m.phaseName;
+    left.appendChild(pnm);
+
+    const mp = document.createElement("span");
+    mp.className = "mini-prog";
+    mp.id = "mini-" + m.num;
+    mp.textContent = dc + "/" + total;
+
+    const chv = document.createElement("span");
+    chv.className = "chevron";
+    chv.textContent = "›";
+
+    hd.appendChild(left);
+    hd.appendChild(mp);
+    hd.appendChild(chv);
+    card.appendChild(hd);
+
+    const bd = document.createElement("div");
+    bd.className = "card-bd";
+
+    const wn = document.createElement("div");
+    wn.className = "wk-note";
+    wn.textContent = "📅 " + m.weekNote;
+    bd.appendChild(wn);
+
+    const list = document.createElement("div");
+    list.className = "todo-list";
+
+    m.items.forEach(function(item, idx) {
+      const k = key(m.num, idx);
+      const tc = TAG[item.tag];
+      const isDone = done.has(k);
+
+      const row = document.createElement("div");
+      row.className = "todo-item" + (item.light ? " light" : "") + (isDone ? " done" : "");
+      row.style.color = tc.bg;
+
+      const chk = document.createElement("div");
+      chk.className = "chk";
+      const tick = document.createElement("span");
+      tick.className = "chk-tick";
+      tick.textContent = "✓";
+      chk.appendChild(tick);
+
+      const txt = document.createElement("div");
+      txt.className = "todo-txt";
+      txt.style.color = isDone ? "" : "var(--text-dark)";
+      txt.textContent = item.text;
+
+      const tpill = document.createElement("span");
+      tpill.className = "item-tag";
+      tpill.style.background = tc.bg;
+      tpill.style.color = tc.fg;
+      tpill.textContent = tc.label;
+
+      row.appendChild(chk);
+      row.appendChild(txt);
+      row.appendChild(tpill);
+
+      row.addEventListener("click", function(e) {
+        e.stopPropagation();
+        if (done.has(k)) { done.delete(k); } else { done.add(k); }
+        save();
+        var wasOpen = card.classList.contains("open");
+        buildCards();
+        updateGlobal();
+        if (wasOpen) {
+          document.querySelectorAll(".card").forEach(function(c) {
+            if (c.dataset.num === String(m.num)) {
+              c.classList.add("open");
+              c.style.borderColor = accent;
+            }
+          });
+        }
+      });
+
+      list.appendChild(row);
+    });
+
+    if (m.items.some(function(i) { return i.light; })) {
+      const ln = document.createElement("div");
+      ln.className = "light-note";
+      ln.textContent = "* 淡色 = 輕量任務或待確認，不佔主要時間";
+      list.appendChild(ln);
+    }
+
+    bd.appendChild(list);
+    card.appendChild(bd);
+
+    hd.addEventListener("click", function() {
+      var open = card.classList.contains("open");
+      card.classList.toggle("open", !open);
+      card.style.borderColor = !open ? accent : "transparent";
+    });
+
+    container.appendChild(card);
+  });
+
+  updateGlobal();
+}
+
+function updateGlobal() {
+  var total = 0, dc = 0;
+  MONTHS.forEach(function(m) {
+    total += m.items.length;
+    m.items.forEach(function(_, i) { if (done.has(key(m.num, i))) dc++; });
+  });
+  var pct = total ? Math.round(dc / total * 100) : 0;
+  document.getElementById("global-pct").textContent = dc + " / " + total + " 完成";
+  document.getElementById("global-bar").style.width = pct + "%";
+  MONTHS.forEach(function(m) {
+    var el = document.getElementById("mini-" + m.num);
+    if (!el) return;
+    var c = m.items.filter(function(_, i) { return done.has(key(m.num, i)); }).length;
+    el.textContent = c + "/" + m.items.length;
+  });
+}
+
+buildTimeline();
+buildCards();
+</script>
+</body>
+</html>
