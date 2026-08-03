@@ -40,7 +40,7 @@ body {
 .prog-fill { height:100%; border-radius:99px; background:linear-gradient(90deg,#7BA0A8,#A67B5B); transition:width .4s ease; }
 
 .tl-title { font-size:11px; font-weight:700; color:var(--text-mid); letter-spacing:1px; margin-bottom:10px; }
-.tl-grid { display:grid; grid-template-columns:52px repeat(12,1fr); row-gap:2px; }
+.tl-grid { display:grid; grid-template-columns:52px repeat(13,1fr); row-gap:2px; }
 .tl-mh { font-size:10px; text-align:center; color:var(--text-light); font-weight:500; padding-bottom:4px; }
 .tl-lbl { font-size:10px; font-weight:700; text-align:right; padding-right:8px; white-space:nowrap; display:flex; align-items:center; justify-content:flex-end; height:24px; }
 .tl-cell { height:24px; display:flex; align-items:center; justify-content:center; }
@@ -106,10 +106,10 @@ body {
   body { padding:20px 12px 60px; }
   .card-hd { padding:12px 14px; }
   .card-bd { padding:0 14px 14px; }
-  .tl-grid { grid-template-columns:36px repeat(12,1fr); }
+  .tl-grid { grid-template-columns:32px repeat(13,1fr); }
   .tl-lbl { font-size:9px; padding-right:5px; }
   .tl-mh { font-size:9px; }
-  .tl-subs { padding-left:42px; }
+  .tl-subs { padding-left:32px; }
   .panel { padding:14px 16px; }
 }
 </style>
@@ -135,13 +135,13 @@ body {
 
 <div class="footer">
   <div class="footer-title">📐 排程邏輯</div>
-  <div>→ <strong>⚠️ 本版調整：</strong>求職進度溫和後延約 3-4 個月，完成目標移至 <strong>2027 上半年</strong>（4-5 月既有進度不變，僅調整求職項目）</div>
+  <div>→ <strong>⚠️ 本版調整（8/3）：</strong>7 月未推進，8 月起全部再後延一個月；<strong>按摩課程移除</strong>，降低負載。完成目標仍在 <strong>2027 上半年</strong></div>
   <div>→ <strong>4-5 月各完成一個 Vibe Coding 專案</strong>，作為作品集補充素材</div>
-  <div>→ <strong>作品集 8 月上線</strong>：4-5 月架構＋內容 → 6-7 月持續更新 → 8 月最終修正上線（原訂 7 月，溫和後延）</div>
-  <div>→ <strong>商用英文課程</strong>（6-7 月，評估中）彈性安排</div>
-  <div>→ <strong>職涯教練模擬面試</strong>安排在 8 月，正式大量投遞前完成</div>
+  <div>→ <strong>作品集 9 月上線</strong>：8 月補完七月順延的更新與簡報 → 9 月最終修正上線</div>
+  <div>→ <strong>商用英文課程</strong>（原訂 6-7 月，評估中未啟動）</div>
+  <div>→ <strong>職涯教練模擬面試</strong>移至 9 月，正式大量投遞前完成</div>
   <div>→ <strong>健康：</strong>6 月牙齒檢查、12 月健康檢查，分散全年</div>
-  <div>→ <strong>求職時程（後延）：</strong>8-9 月面試訓練 → 10-11 月投遞（10 月中出國，錯開）→ 12 月～2027/3 主力面試（1 月過年前淡季，隨機應變）→ 2027 春收 offer 談判 → 目標 2027 上半年到職 ✓</div>
+  <div>→ <strong>求職時程（再後延一個月）：</strong>8 月補七月順延 → 9 月作品集上線＋面試訓練 → 10 月深度演練（10 月中出國，錯開）→ 11-12 月投遞 → 2027/1 過年前淡季隨機應變 → 2027/2-3 年後回溫主力面試收 offer → 4 月簽約，目標 2027 上半年到職 ✓</div>
   <div>→ 每週扣掉 3 晚運動，實際可用 ≈ <strong>1-2 個平日晚上 + 週末</strong></div>
 </div>
 
@@ -188,68 +188,69 @@ const MONTHS = [
       { text:"商用英文課程（評估中）",           tag:"english", light:true },
       { text:"牙齒檢查",                       tag:"health" },
     ]},
-  { num:7,  label:"七月",   phase:"prep",      phaseName:"素材收尾",
-    tracks:["job","english"], weekNote:"完整四週可用",
+  { num:7,  label:"七月",   phase:"prep",      phaseName:"⚠️ 未推進 · 全數順延",
+    tracks:["job"], weekNote:"本月未推進，項目順延至 8-9 月",
     items:[
-      { text:"作品集網站持續更新",             tag:"job" },
-      { text:"作品簡報 / 自介簡報完成",         tag:"job" },
-      { text:"Cover letter 模板 & 客製化練習",  tag:"job" },
-      { text:"商用英文課程（評估中）",           tag:"english", light:true },
+      { text:"（未推進）作品集 / 簡報 / Cover letter → 順延至 8-9 月", tag:"job", light:true },
     ]},
-  { num:8,  label:"八月",   phase:"prep",      phaseName:"作品集上線 + 面試訓練",
-    tracks:["job","drive","coach"], weekNote:"平日做事＋週末練車",
+  { num:8,  label:"八月",   phase:"prep",      phaseName:"素材收尾（順延補上）",
+    tracks:["job","drive"], weekNote:"七月順延項目優先 · 平日做事＋週末練車",
+    items:[
+      { text:"作品集網站更新收尾（七月順延）",     tag:"job" },
+      { text:"作品簡報 / 自介簡報完成（七月順延）", tag:"job" },
+      { text:"Cover letter 模板 & 客製化練習",    tag:"job" },
+      { text:"駕照練習開始（週末為主）",           tag:"drive" },
+    ]},
+  { num:9,  label:"九月",   phase:"prep",      phaseName:"作品集上線 + 面試訓練",
+    tracks:["job","drive","coach"], weekNote:"完整四週可用",
     items:[
       { text:"作品集網站最終修正上線",           tag:"job" },
       { text:"英文面試準備 & 基礎面試練習",      tag:"job" },
       { text:"職涯教練模擬面試（至少 1 場）",    tag:"coach" },
-      { text:"駕照練習開始（週末為主）",          tag:"drive" },
-    ]},
-  { num:9,  label:"九月",   phase:"prep",      phaseName:"面試演練 + 履歷定版",
-    tracks:["job","drive"], weekNote:"完整四週可用",
-    items:[
-      { text:"深度面試模擬 & 案例演練",          tag:"job" },
-      { text:"履歷最終版確認",                  tag:"job" },
       { text:"駕照練習持續",                    tag:"drive" },
     ]},
-  { num:10, label:"十月",   phase:"apply",     phaseName:"第一波投遞 + 出國",
-    tracks:["job","travel","massage"], weekNote:"10 月中出國（已確定）→ 投遞錯開出國前後",
+  { num:10, label:"十月",   phase:"prep",      phaseName:"面試演練 + 出國",
+    tracks:["job","travel"], weekNote:"10 月中出國（已確定）→ 演練錯開出國前後",
     items:[
       { text:"出國旅遊（10 月中，已確定）",       tag:"travel" },
-      { text:"Web3 Designer 職缺第一波投遞（出國前啟動，回來續投）", tag:"job" },
-      { text:"作品集依職缺需求微調",             tag:"job" },
-      { text:"按摩課程開始",                    tag:"massage" },
+      { text:"深度面試模擬 & 案例演練",          tag:"job" },
+      { text:"履歷最終版確認",                  tag:"job" },
     ]},
-  { num:11, label:"十一月", phase:"apply",     phaseName:"持續投遞",
-    tracks:["job","massage"], weekNote:"擴大投遞範圍",
+  { num:11, label:"十一月", phase:"apply",     phaseName:"第一波投遞",
+    tracks:["job"], weekNote:"平日投遞為主",
+    items:[
+      { text:"Web3 Designer 職缺第一波投遞",     tag:"job" },
+      { text:"作品集依職缺需求微調",             tag:"job" },
+    ]},
+  { num:12, label:"十二月", phase:"apply",     phaseName:"擴大投遞 + 面試實戰",
+    tracks:["job","health","life"], weekNote:"投遞與面試並行",
     items:[
       { text:"持續投遞 + 擴大一般 UI/UX 職缺",  tag:"job" },
       { text:"面試實戰 & 覆盤調整",              tag:"job" },
-      { text:"按摩課程持續",                    tag:"massage" },
-    ]},
-  { num:12, label:"十二月", phase:"interview", phaseName:"面試密集期起步",
-    tracks:["job","health","life"], weekNote:"面試為最優先",
-    items:[
-      { text:"面試密集期：深度面試進行中",       tag:"job" },
-      { text:"作品集 / 簡報年度版更新",          tag:"job" },
       { text:"健康檢查",                       tag:"health" },
       { text:"年度總結（作品集 / IG / 技能）",   tag:"life" },
-      { text:"規劃 2027 求職衝刺",              tag:"life" },
     ]},
-  { num:13, label:"一月",   phase:"interview", phaseName:"過年前淡季 · 隨機應變", yearMark:"2027",
+  { num:13, label:"一月",   phase:"apply",     phaseName:"過年前淡季 · 隨機應變", yearMark:"2027",
     tracks:["job"], weekNote:"接近農曆年，職缺放緩，彈性安排",
     items:[
-      { text:"持續面試 / 等 offer（有就談，沒有不勉強）", tag:"job" },
+      { text:"持續投遞 / 面試（有就談，沒有不勉強）", tag:"job" },
       { text:"過年前維持人脈 & 內推聯繫",        tag:"job", light:true },
       { text:"作品集 / 簡報冬季版微調",          tag:"job", light:true },
     ]},
-  { num:14, label:"二月",   phase:"wrap",      phaseName:"收 offer + 談判",
-    tracks:["job"], weekNote:"農曆年前後彈性安排",
+  { num:14, label:"二月",   phase:"interview", phaseName:"年後回溫 · 面試密集",
+    tracks:["job"], weekNote:"年後職缺回溫，面試為最優先",
+    items:[
+      { text:"面試密集期：深度面試進行中",       tag:"job" },
+      { text:"依面試回饋調整作品集 / 簡報",      tag:"job" },
+    ]},
+  { num:15, label:"三月",   phase:"wrap",      phaseName:"收 offer + 談判",
+    tracks:["job"], weekNote:"面試收尾，進入談判階段",
     items:[
       { text:"offer 比較 & 薪資談判",           tag:"job" },
-      { text:"確認到職時間（農曆年後 / 春季）",   tag:"job" },
+      { text:"確認到職時間",                    tag:"job" },
     ]},
-  { num:15, label:"三月",   phase:"wrap",      phaseName:"確認 offer + 到職準備",
-    tracks:["job","life"], weekNote:"目標 2027 上半年到職",
+  { num:16, label:"四月",   phase:"wrap",      phaseName:"簽約 + 到職準備",
+    tracks:["job","life"], weekNote:"目標 2027 上半年到職 ✓",
     items:[
       { text:"簽約 & 到職準備",                 tag:"job" },
       { text:"新工作技能提升清單",               tag:"job", light:true },
@@ -258,14 +259,13 @@ const MONTHS = [
 ];
 
 const TRACKS = [
-  { label:"求職",     ranges:[[4,15]], color:"#3D3225", sub:"4-5 素材 → 6-8 完成＋上線 → 8-9 面試訓練 → 10-11 投遞 → 12～27/3 面試收 offer" },
+  { label:"求職",     ranges:[[4,16]], color:"#3D3225", sub:"4-5 素材 → 8-9 收尾＋上線 → 9-10 面試訓練 → 11-27/1 投遞 → 27/2-3 面試收 offer" },
   { label:"Vibe",     ranges:[[4,5]],  color:"#4A6FA5", sub:"各完成一個專案作品" },
-  { label:"商用英文", ranges:[[6,7]],  color:"#B5874A", sub:"評估中，彈性安排" },
+  { label:"商用英文", ranges:[[6,7]],  color:"#B5874A", sub:"評估中，未啟動" },
   { label:"駕照",     ranges:[[8,9]],  color:"#5B7B6A", sub:"週末為主" },
-  { label:"按摩",     ranges:[[10,11]],color:"#8B6F8B", sub:"等 offer 的減壓期" },
 ];
-const MNS = [4,5,6,7,8,9,10,11,12,13,14,15];
-const MLABEL = {13:"27/1", 14:"27/2", 15:"27/3"};
+const MNS = [4,5,6,7,8,9,10,11,12,13,14,15,16];
+const MLABEL = {13:"27/1", 14:"27/2", 15:"27/3", 16:"27/4"};
 const HEALTH_MK = {6:"🦷", 12:"🏥"};
 const TRAVEL_MK = {4:"✈️初", 5:"✈️中", 10:"✈️中"};
 
