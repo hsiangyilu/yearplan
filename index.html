@@ -141,7 +141,8 @@ body {
   <div>→ <strong>商用英文課程</strong>（原訂 6-7 月，評估中未啟動）</div>
   <div>→ <strong>職涯教練模擬面試</strong>移至 9 月，正式大量投遞前完成</div>
   <div>→ <strong>健康：</strong>6 月牙齒檢查、12 月健康檢查，分散全年</div>
-  <div>→ <strong>求職時程（再後延一個月）：</strong>8 月補七月順延 → 9 月作品集上線＋面試訓練 → 10 月深度演練（10 月中出國，錯開）→ 11-12 月投遞 → 2027/1 過年前淡季隨機應變 → 2027/2-3 年後回溫主力面試收 offer → 4 月簽約，目標 2027 上半年到職 ✓</div>
+  <div>→ <strong>求職時程（再後延一個月）：</strong>8 月補七月順延（減量）→ 9 月作品集上線＋面試訓練 → 10 月文件定版＋深度演練（10 月中出國，錯開）→ 11-12 月投遞 → 2027/1 過年前淡季隨機應變 → 2027/2-3 年後回溫主力面試收 offer → 4 月簽約，目標 2027 上半年到職 ✓</div>
+  <div>→ <strong>Cover letter 移至 10 月</strong>：與履歷定版同批處理，離 11 月投遞最近，8 月不再超載</div>
   <div>→ 每週扣掉 3 晚運動，實際可用 ≈ <strong>1-2 個平日晚上 + 週末</strong></div>
 </div>
 
@@ -189,16 +190,15 @@ const MONTHS = [
       { text:"牙齒檢查",                       tag:"health" },
     ]},
   { num:7,  label:"七月",   phase:"prep",      phaseName:"⚠️ 未推進 · 全數順延",
-    tracks:["job"], weekNote:"本月未推進，項目順延至 8-9 月",
+    tracks:["job"], weekNote:"本月未推進，項目順延至 8-10 月",
     items:[
-      { text:"（未推進）作品集 / 簡報 / Cover letter → 順延至 8-9 月", tag:"job", light:true },
+      { text:"（未推進）作品集 / 簡報 → 8 月　Cover letter → 10 月", tag:"job", light:true },
     ]},
   { num:8,  label:"八月",   phase:"prep",      phaseName:"素材收尾（順延補上）",
-    tracks:["job","drive"], weekNote:"七月順延項目優先 · 平日做事＋週末練車",
+    tracks:["job","drive"], weekNote:"減量版 · 只補七月順延的兩項＋週末練車",
     items:[
       { text:"作品集網站更新收尾（七月順延）",     tag:"job" },
       { text:"作品簡報 / 自介簡報完成（七月順延）", tag:"job" },
-      { text:"Cover letter 模板 & 客製化練習",    tag:"job" },
       { text:"駕照練習開始（週末為主）",           tag:"drive" },
     ]},
   { num:9,  label:"九月",   phase:"prep",      phaseName:"作品集上線 + 面試訓練",
@@ -209,12 +209,13 @@ const MONTHS = [
       { text:"職涯教練模擬面試（至少 1 場）",    tag:"coach" },
       { text:"駕照練習持續",                    tag:"drive" },
     ]},
-  { num:10, label:"十月",   phase:"prep",      phaseName:"面試演練 + 出國",
-    tracks:["job","travel"], weekNote:"10 月中出國（已確定）→ 演練錯開出國前後",
+  { num:10, label:"十月",   phase:"prep",      phaseName:"文件定版 + 面試演練 + 出國",
+    tracks:["job","travel"], weekNote:"10 月中出國（已確定）→ 文件與演練錯開出國前後",
     items:[
       { text:"出國旅遊（10 月中，已確定）",       tag:"travel" },
       { text:"深度面試模擬 & 案例演練",          tag:"job" },
       { text:"履歷最終版確認",                  tag:"job" },
+      { text:"Cover letter 模板 & 客製化練習",   tag:"job" },
     ]},
   { num:11, label:"十一月", phase:"apply",     phaseName:"第一波投遞",
     tracks:["job"], weekNote:"平日投遞為主",
