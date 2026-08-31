@@ -118,7 +118,7 @@ body {
 
 <div class="header">
   <h1>2026 – 2027 年度計畫</h1>
-  <p>下一份工作已確定：永豐證券 · 農曆年後到職<br>剩下的時間留給作品集與生活 — 每月最多 2 項，不再排滿</p>
+  <p>永豐證券面試已完成，<strong>尚未發 offer</strong> · 求職衝刺無論如何都落在 2027<br>2026 剩下的時間：把作品集與簡報等前置作業準備好 — 每月最多 2 項</p>
 </div>
 
 <div class="panel">
@@ -135,14 +135,13 @@ body {
 
 <div class="footer">
   <div class="footer-title">📐 排程邏輯</div>
-  <div>→ <strong>✅ 重大調整（8/31）：</strong>已確定<strong>農曆年後到職永豐證券</strong>（先求跳槽加薪與經驗累積，已完成面試）</div>
-  <div>→ <strong>面試相關全部取消：</strong>英文面試準備、深度面試模擬、職涯教練、履歷定版、Cover letter、Web3 / UI-UX 投遞、offer 談判 — 皆已移除</div>
-  <div>→ <strong>作品集網站保留</strong>，但性質改變：不再是求職武器，而是自己想做的事，因此改成低壓、可分批的推進方式</div>
-  <div>→ <strong>9-12 月每月只排 1-2 項：</strong>7、8 月連續兩個月零進度，代表原本的量本來就超過可用時間，這版直接砍到最低</div>
-  <div>→ <strong>作品集拆成三段：</strong>9 月一個專案頁 → 10 月第二個專案頁 → 11 月整體調整 → 12 月階段性上線（不再要求「全站一次完成」）</div>
-  <div>→ <strong>10 月中出國</strong>（已確定），該月只排一項作品集工作</div>
+  <div>→ <strong>⚠️ 現況（8/31）：</strong>永豐證券<strong>面試已完成，但尚未發 offer</strong>，不是確定的事；同時 7、8 月連續兩個月零進度</div>
+  <div>→ <strong>核心判斷：</strong>就算永豐沒下文，以目前進度，面試準備／模擬面試／職涯教練<strong>也已經來不及排在 2026</strong>，只能落在 2027 年後 — 所以 2026 剩下的時間不排面試相關</div>
+  <div>→ <strong>但前置作業一定要做：</strong>作品集網站、自我介紹簡報、專案介紹簡報 — 這三項<strong>兩條路都用得上</strong>（去永豐也需要、重新求職更需要），是 2026 剩下四個月的唯一重點</div>
+  <div>→ <strong>9-12 月每月只排 2 項：</strong>連續兩個月零進度代表原本的量就超過可用時間，這版砍到最低</div>
+  <div>→ <strong>前置作業排程：</strong>9 月一個專案頁 → 10 月第二個專案頁（10 月中出國，錯開）→ 11 月整體調整＋自介簡報 → 12 月階段性上線 → 27/1 專案介紹簡報收尾</div>
   <div>→ <strong>健康：</strong>6 月牙齒檢查（已排）、12 月健康檢查</div>
-  <div>→ <strong>2027：</strong>1 月現職交接＋到職前準備 → 2 月農曆年後到職永豐 ✓ → 3 月新工作適應期，其他事情先放慢</div>
+  <div>→ <strong>2027/2 是分岔點：</strong><strong>Ａ</strong> 永豐有 offer → 談條件、確認到職；<strong>Ｂ</strong> 永豐沒下文 → 年後才啟動面試準備、職涯教練與投遞。兩條路在 3 月才需要決定投入強度</div>
   <div>→ 每週扣掉 3 晚運動，實際可用 ≈ <strong>1-2 個平日晚上 + 週末</strong></div>
 </div>
 
@@ -213,48 +212,51 @@ const MONTHS = [
       { text:"出國旅遊（10 月中，已確定）",      tag:"travel" },
       { text:"作品集網站：第二個專案頁面",       tag:"portfolio" },
     ]},
-  { num:11, label:"十一月", phase:"rebuild",   phaseName:"作品集整體調整",
-    tracks:["portfolio","drive"], weekNote:"完整四週可用",
+  { num:11, label:"十一月", phase:"rebuild",   phaseName:"作品集調整 + 自介簡報",
+    tracks:["portfolio"], weekNote:"完整四週可用",
     items:[
       { text:"作品集網站：視覺與內容整體調整",   tag:"portfolio" },
+      { text:"自我介紹簡報（前置作業）",         tag:"portfolio" },
       { text:"駕照練習持續",                    tag:"drive", light:true },
     ]},
-  { num:12, label:"十二月", phase:"wrap",      phaseName:"作品集階段完成 + 年度收尾",
-    tracks:["portfolio","health","newjob"], weekNote:"收尾＋確認到職",
+  { num:12, label:"十二月", phase:"wrap",      phaseName:"作品集上線 + 年度收尾",
+    tracks:["portfolio","health"], weekNote:"收尾＋等永豐消息",
     items:[
       { text:"作品集網站階段性完成上線",         tag:"portfolio" },
-      { text:"與永豐證券確認到職時間 & 條件",    tag:"newjob" },
       { text:"健康檢查",                        tag:"health" },
-      { text:"年度總結（作品集 / IG / 技能）",   tag:"life" },
+      { text:"追蹤永豐證券 offer 進度",          tag:"newjob", light:true },
+      { text:"年度總結（作品集 / IG / 技能）",   tag:"life", light:true },
     ]},
 
-  { num:13, label:"一月",   phase:"newjob",    phaseName:"交接 + 到職準備", yearMark:"2027",
-    tracks:["newjob"], weekNote:"農曆年前 · 現職交接為主",
+  { num:13, label:"一月",   phase:"prep",      phaseName:"專案簡報收尾 · 前置作業完成", yearMark:"2027",
+    tracks:["portfolio","newjob"], weekNote:"農曆年前 · 把素材備齊，兩條路都用得上",
     items:[
-      { text:"現職交接 & 離職流程",             tag:"newjob" },
-      { text:"永豐證券到職前準備（證券 / 金融產業補課）", tag:"newjob" },
-      { text:"作品集小幅維護",                  tag:"portfolio", light:true },
+      { text:"專案介紹簡報（前置作業，面試 / 到職都用得上）", tag:"portfolio" },
+      { text:"作品集細節補完 & 維護",            tag:"portfolio", light:true },
+      { text:"追蹤永豐 offer / 保持聯繫",        tag:"newjob", light:true },
     ]},
-  { num:14, label:"二月",   phase:"newjob",    phaseName:"農曆年 → 到職永豐證券",
-    tracks:["newjob","life"], weekNote:"農曆年後正式到職 ✓",
+  { num:14, label:"二月",   phase:"prep",      phaseName:"農曆年 · 分岔點",
+    tracks:["newjob","job","life"], weekNote:"年後視永豐 offer 結果決定走哪條路",
     items:[
-      { text:"農曆年休息 & 轉換期充電",          tag:"life" },
-      { text:"到職永豐證券 ✓",                  tag:"newjob" },
+      { text:"農曆年休息 & 充電",                tag:"life" },
+      { text:"Ａ｜永豐有 offer → 談條件、確認到職", tag:"newjob" },
+      { text:"Ｂ｜永豐沒下文 → 啟動面試準備 & 職涯教練", tag:"job" },
     ]},
-  { num:15, label:"三月",   phase:"newjob",    phaseName:"新工作適應期",
-    tracks:["newjob","life"], weekNote:"以適應新環境為主，其他先放慢",
+  { num:15, label:"三月",   phase:"prep",      phaseName:"Ａ 到職適應 ／ Ｂ 求職衝刺",
+    tracks:["newjob","job"], weekNote:"兩條路擇一，這個月才需要決定強度",
     items:[
-      { text:"新工作適應 & 團隊融入",           tag:"newjob" },
-      { text:"新工作技能補強清單",               tag:"newjob", light:true },
-      { text:"2027 下半年目標規劃",              tag:"life" },
+      { text:"Ａ｜到職永豐、新環境適應",         tag:"newjob" },
+      { text:"Ｂ｜模擬面試 / 職涯教練 / 開始投遞", tag:"job" },
+      { text:"2027 下半年目標規劃",              tag:"life", light:true },
     ]},
 ];
 
 const TRACKS = [
-  { label:"作品集",   ranges:[[4,13]], color:"#3D3225", sub:"4-5 素材 → 6-8 停滯 → 9-12 重新推進（自主更新，不再綁求職）" },
-  { label:"Vibe",     ranges:[[4,5]],  color:"#4A6FA5", sub:"各完成一個專案作品" },
-  { label:"駕照",     ranges:[[9,11]], color:"#5B7B6A", sub:"週末為主，輕量" },
-  { label:"永豐證券", ranges:[[12,15]],color:"#2F5D50", sub:"12 月確認 → 27/1 交接準備 → 27/2 農曆年後到職 ✓" },
+  { label:"作品集/簡報", ranges:[[4,13]], color:"#3D3225", sub:"4-5 素材 → 6-8 停滯 → 9-12 重新推進 → 27/1 自介＋專案簡報收尾" },
+  { label:"Vibe",       ranges:[[4,5]],  color:"#4A6FA5", sub:"各完成一個專案作品" },
+  { label:"駕照",       ranges:[[9,11]], color:"#5B7B6A", sub:"週末為主，輕量" },
+  { label:"永豐（等）", ranges:[[12,15]],color:"#2F5D50", sub:"面試已完成，尚未發 offer；有 → 農曆年後到職" },
+  { label:"求職備案",   ranges:[[14,15]],color:"#8B6914", sub:"若永豐沒下文 → 27/2 起才啟動面試準備與投遞" },
 ];
 const MNS = [4,5,6,7,8,9,10,11,12,13,14,15];
 const MLABEL = {13:"27/1", 14:"27/2", 15:"27/3"};
