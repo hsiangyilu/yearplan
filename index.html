@@ -144,9 +144,10 @@ body {
   <div>→ <strong>備案：</strong>若 Ａ 到年假還沒收完，年假第一件事是補完 Ａ，再往下走 — <strong>不要兩個專案都半成品</strong></div>
   <div>→ <strong>健康：</strong>6 月牙齒檢查（已完成）、12 月健康檢查</div>
   <div>→ <strong>2027/2 同時是分岔點：</strong><strong>Ａ</strong> 永豐有 offer → 談條件、確認到職；<strong>Ｂ</strong> 永豐沒下文 → 年後才啟動面試準備、職涯教練與投遞</div>
-  <div>→ <strong>🚗 駕照放回來了：</strong>整年只剩工作與作品集，缺少工作以外的技能培養，所以把它補回主線</div>
-  <div>→ <strong>這次駕照的排法不一樣：</strong>前幾次它都被標成「輕量 / 有空再說」，等於永遠排在作品集後面 — 這次<strong>不標輕量</strong>，並明確走<strong>週末時段</strong>，和平日晚上的作品集互不搶時間</div>
-  <div>→ <strong>駕照有明確終點：</strong>11 月報名（只是打一通電話）→ 12 月開始上課 → 27/1 年前衝一波 → <strong>27/3 路考考到 ✓</strong>（27/2 年假駕訓班多半停課，不排）</div>
+  <div>→ <strong>🚗 道路駕駛放回主線：</strong>整年只剩工作與作品集，缺少工作以外的技能培養，所以補回來</div>
+  <div>→ <strong>不是考照，是回訓：</strong>駕照很久以前就考到了，問題是太久沒開、手感沒了 — 需要的是<strong>道路駕駛課程</strong>，終點也不是證照，而是<strong>能真的獨自上路</strong></div>
+  <div>→ <strong>這次的排法不一樣：</strong>前幾次它都被標成「輕量 / 有空再說」，等於永遠排在作品集後面 — 這次<strong>不標輕量</strong>，並明確走<strong>週末時段</strong>，和平日晚上的作品集互不搶時間</div>
+  <div>→ <strong>明確終點：</strong>11 月報名（只是打一通電話）→ 12 月熟悉車感 → 27/1 市區實際路況 → <strong>27/3 能獨自開車完成一趟實際行程 ✓</strong>（27/2 年假教練多半停課，不排）</div>
   <div>→ 每週扣掉 3 晚運動，實際可用 ≈ <strong>1-2 個平日晚上 + 週末</strong></div>
 </div>
 
@@ -159,7 +160,7 @@ const TAG = {
   code:      { label:"Vibe",      bg:"#4A6FA5", fg:"#fff" },
   english:   { label:"商用英文",  bg:"#B5874A", fg:"#fff" },
   health:    { label:"健康",      bg:"#6A9E7A", fg:"#fff" },
-  drive:     { label:"駕照",      bg:"#5B7B6A", fg:"#fff" },
+  drive:     { label:"開車",      bg:"#5B7B6A", fg:"#fff" },
   life:      { label:"生活",      bg:"#A08060", fg:"#fff" },
 };
 
@@ -218,26 +219,26 @@ const MONTHS = [
     ]},
 
   { num:11, label:"十一月", phase:"prep",      phaseName:"專案 Ａ 完成上線 ✓",
-    tracks:["portfolio","drive"], weekNote:"平日晚上做 Ａ · 駕照只需打一通電話報名",
+    tracks:["portfolio","drive"], weekNote:"平日晚上做 Ａ · 開車只需打一通電話報名",
     items:[
       { text:"專案 Ａ：視覺細節調整 → 直接上線 ✓", tag:"portfolio" },
-      { text:"報名駕訓班 / 約教練（行政工作，一通電話）", tag:"drive" },
+      { text:"報名道路駕駛課程（已有駕照，找回手感用）", tag:"drive" },
       { text:"追蹤永豐 offer 進度",              tag:"newjob", light:true },
     ]},
   { num:12, label:"十二月", phase:"prep",      phaseName:"專案 Ｂ 備料",
     tracks:["portfolio","drive","health"], weekNote:"平日晚上寫字排版 · 週末練車，兩邊不搶時間",
     items:[
       { text:"專案 Ｂ：文字草稿 + 大致排版",      tag:"portfolio" },
-      { text:"駕照：開始上課 / 練習（週末）",     tag:"drive" },
+      { text:"道路駕駛：熟悉車感與基本操作（週末）", tag:"drive" },
       { text:"健康檢查",                        tag:"health" },
       { text:"年度總結（作品集 / IG / 技能）",   tag:"life", light:true },
     ]},
 
   { num:13, label:"一月",   phase:"prep",      phaseName:"簡報備料 + 衝刺前檢查", yearMark:"2027",
-    tracks:["portfolio","drive","newjob"], weekNote:"年假前最後準備 · 駕訓班年假多半停課，年前先練",
+    tracks:["portfolio","drive","newjob"], weekNote:"年假前最後準備 · 教練年假多半停課，年前先練",
     items:[
       { text:"自我介紹簡報：文字內容整理（純文字）", tag:"portfolio" },
-      { text:"駕照：持續練習（年前衝一波）",      tag:"drive" },
+      { text:"道路駕駛：市區實際路況練習",        tag:"drive" },
       { text:"確認年假工作環境：Figma 檔、網站專案、素材都就定位", tag:"portfolio", light:true },
       { text:"追蹤永豐 offer / 保持聯繫",        tag:"newjob", light:true },
     ]},
@@ -251,11 +252,11 @@ const MONTHS = [
       { text:"年後分岔：Ａ 永豐談到職 ／ Ｂ 沒下文則啟動面試準備", tag:"newjob" },
     ]},
   { num:15, label:"三月",   phase:"prep",      phaseName:"Ａ 到職適應 ／ Ｂ 求職衝刺",
-    tracks:["newjob","job","drive"], weekNote:"兩條路擇一 · 駕照在這個月結案",
+    tracks:["newjob","job","drive"], weekNote:"兩條路擇一 · 開車在這個月結案",
     items:[
       { text:"Ａ｜到職永豐、新環境適應",         tag:"newjob" },
       { text:"Ｂ｜模擬面試 / 職涯教練 / 開始投遞", tag:"job" },
-      { text:"駕照：路考 → 考到駕照 ✓",          tag:"drive" },
+      { text:"能獨自開車完成一趟實際行程 ✓",      tag:"drive" },
       { text:"專案介紹簡報（接續年假進度）",     tag:"portfolio", light:true },
       { text:"2027 下半年目標規劃",              tag:"life", light:true },
     ]},
@@ -264,7 +265,7 @@ const MONTHS = [
 const TRACKS = [
   { label:"作品集/簡報", ranges:[[4,15]], color:"#3D3225", sub:"4-5 素材 → 6-10 停滯（四個月零進度）→ 11 收完 Ａ → 12-27/1 Ｂ 與簡報備料 → 27/2 年假衝刺 ⭐" },
   { label:"Vibe",       ranges:[[4,5]],  color:"#4A6FA5", sub:"各完成一個專案作品" },
-  { label:"駕照",       ranges:[[11,15]],color:"#5B7B6A", sub:"工作以外的技能 · 走週末時段，與平日晚上的作品集不搶時間 → 27/3 考照 ✓" },
+  { label:"道路駕駛",   ranges:[[11,15]],color:"#5B7B6A", sub:"已有駕照、太久沒開 → 回訓找回手感 · 走週末時段 → 27/3 能獨自上路 ✓" },
   { label:"永豐（等）", ranges:[[12,15]],color:"#2F5D50", sub:"面試已完成，尚未發 offer；有 → 農曆年後到職" },
   { label:"求職備案",   ranges:[[14,15]],color:"#8B6914", sub:"若永豐沒下文 → 27/2 起才啟動面試準備與投遞" },
 ];
