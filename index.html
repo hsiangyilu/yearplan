@@ -137,10 +137,10 @@ body {
   <div class="footer-title">📐 排程邏輯</div>
   <div>→ <strong>⚠️ 現況（11/2）：</strong>7、8、9、10 月<strong>連續四個月零進度</strong>。每次的處理都是「再延一個月、再減量一點」，四次都失敗 — 問題不在量，在於<strong>平日晚上這個時段本身推不動創作型工作</strong></div>
   <div>→ <strong>策略改變：</strong>不再假裝平日晚上能做設計。把唯一一段連續時間（農曆年假）當成真正的工作區塊，平日只負責「讓年假能立刻開工」</div>
-  <div>→ <strong>順序：做完 Ａ 再弄 Ｂ。</strong>專案 Ａ <strong>已經有文字稿＋大致排版</strong>，不是從零開始 — 把它收完的門檻遠低於啟動一個新專案，所以 11-12 月專心結案 Ａ</div>
-  <div>→ <strong>Ａ 的收尾拆成兩步：</strong>11 月在既有排版上調視覺細節 → 12 月頁面完成並真的放上網站 ✓。每月只有一件事，而且都是「接續」不是「開始」</div>
-  <div>→ <strong>27/1 把 Ｂ 推到 Ａ 現在的狀態：</strong>文字稿＋大致排版。這是寫字與排版，平日晚上做得動；真正的視覺設計留到年假</div>
-  <div>→ <strong>⭐ 農曆年假（約 2/5-2/14）集中火力：</strong>依序做 ① 專案 Ｂ 頁面 → ② 網站整體調整上線 → ③ 自介簡報（有餘力）。<strong>按順序做，做不完就停在哪裡</strong>，前兩項完成就算成功</div>
+  <div>→ <strong>開發方式：AI 開發，設計完成即發佈</strong> — 沒有獨立的實作/部署階段，所以「做完頁面」和「上線」是同一件事，不另外佔時間</div>
+  <div>→ <strong>順序：做完 Ａ 再弄 Ｂ。</strong>專案 Ａ <strong>已有文字稿＋大致排版</strong>，只剩視覺細節，<strong>11 月一個月收完並上線</strong></div>
+  <div>→ <strong>12 月～27/1 做備料（寫字，不做視覺）：</strong>12 月把 Ｂ 推到「Ａ 原本的狀態」（文字稿＋大致排版）→ 27/1 整理自介簡報的文字內容。這兩件平日晚上做得動</div>
+  <div>→ <strong>⭐ 農曆年假（約 2/5-2/14）集中火力：</strong>依序做 ① 專案 Ｂ 視覺完成上線 → ② 網站整體調整 → ③ 自介簡報視覺（有餘力）。<strong>按順序做，做不完就停在哪裡</strong>，前兩項完成就算成功</div>
   <div>→ <strong>備案：</strong>若 Ａ 到年假還沒收完，年假第一件事是補完 Ａ，再往下走 — <strong>不要兩個專案都半成品</strong></div>
   <div>→ <strong>健康：</strong>6 月牙齒檢查（已完成）、12 月健康檢查</div>
   <div>→ <strong>2027/2 同時是分岔點：</strong><strong>Ａ</strong> 永豐有 offer → 談條件、確認到職；<strong>Ｂ</strong> 永豐沒下文 → 年後才啟動面試準備、職涯教練與投遞</div>
@@ -215,33 +215,33 @@ const MONTHS = [
       { text:"（未推進）作品集：第二個專案頁面",  tag:"job", light:true },
     ]},
 
-  { num:11, label:"十一月", phase:"prep",      phaseName:"專案 Ａ ①　視覺細節",
-    tracks:["portfolio"], weekNote:"已有文字稿＋大致排版 → 從這裡接續，不從零開始",
+  { num:11, label:"十一月", phase:"prep",      phaseName:"專案 Ａ 完成上線 ✓",
+    tracks:["portfolio"], weekNote:"AI 開發 · 視覺調完即發佈，沒有額外的實作階段",
     items:[
-      { text:"專案 Ａ：在既有排版上做視覺細節調整", tag:"portfolio" },
+      { text:"專案 Ａ：視覺細節調整 → 直接上線 ✓", tag:"portfolio" },
       { text:"追蹤永豐 offer 進度",              tag:"newjob", light:true },
     ]},
-  { num:12, label:"十二月", phase:"prep",      phaseName:"專案 Ａ ②　完成上線",
-    tracks:["portfolio","health"], weekNote:"把 Ａ 真正結案，不留尾巴",
+  { num:12, label:"十二月", phase:"prep",      phaseName:"專案 Ｂ 備料",
+    tracks:["portfolio","health"], weekNote:"把 Ｂ 推到「Ａ 原本的狀態」· 寫字與排版，不做視覺",
     items:[
-      { text:"專案 Ａ：頁面完成並放上網站 ✓",     tag:"portfolio" },
+      { text:"專案 Ｂ：文字草稿 + 大致排版",      tag:"portfolio" },
       { text:"健康檢查",                        tag:"health" },
       { text:"年度總結（作品集 / IG / 技能）",   tag:"life", light:true },
     ]},
 
-  { num:13, label:"一月",   phase:"prep",      phaseName:"專案 Ｂ 備料 + 衝刺前檢查", yearMark:"2027",
-    tracks:["portfolio","newjob"], weekNote:"把 Ｂ 推到「Ａ 現在的狀態」· 寫字與排版，不做視覺",
+  { num:13, label:"一月",   phase:"prep",      phaseName:"簡報備料 + 衝刺前檢查", yearMark:"2027",
+    tracks:["portfolio","newjob"], weekNote:"年假前最後準備 · 一樣只寫字，不做視覺",
     items:[
-      { text:"專案 Ｂ：文字草稿 + 大致排版（做到 Ａ 現在的程度）", tag:"portfolio" },
+      { text:"自我介紹簡報：文字內容整理（純文字）", tag:"portfolio" },
       { text:"確認年假工作環境：Figma 檔、網站專案、素材都就定位", tag:"portfolio", light:true },
       { text:"追蹤永豐 offer / 保持聯繫",        tag:"newjob", light:true },
     ]},
   { num:14, label:"二月",   phase:"sprint",    phaseName:"⭐ 農曆年假 · 集中火力",
     tracks:["portfolio","newjob"], weekNote:"年假約 2/5-2/14（除夕 2/5、初一 2/6）· 全年唯一的連續時間",
     items:[
-      { text:"①　專案 Ｂ：頁面完成（設計＋實作）", tag:"portfolio" },
+      { text:"①　專案 Ｂ：視覺完成 → 上線 ✓",    tag:"portfolio" },
       { text:"②　作品集網站整體調整 & 上線",      tag:"portfolio" },
-      { text:"③　自我介紹簡報（有餘力再做）",     tag:"portfolio", light:true },
+      { text:"③　自我介紹簡報：視覺完成（有餘力再做）", tag:"portfolio", light:true },
       { text:"（備案）若專案 Ａ 還沒收完 → 年假第一件事先補完 Ａ", tag:"portfolio", light:true },
       { text:"年後分岔：Ａ 永豐談到職 ／ Ｂ 沒下文則啟動面試準備", tag:"newjob" },
     ]},
@@ -256,7 +256,7 @@ const MONTHS = [
 ];
 
 const TRACKS = [
-  { label:"作品集/簡報", ranges:[[4,15]], color:"#3D3225", sub:"4-5 素材 → 6-10 停滯（四個月零進度）→ 11-12 先做完專案 Ａ → 27/1 Ｂ 備料 → 27/2 年假衝刺 ⭐" },
+  { label:"作品集/簡報", ranges:[[4,15]], color:"#3D3225", sub:"4-5 素材 → 6-10 停滯（四個月零進度）→ 11 收完 Ａ → 12-27/1 Ｂ 與簡報備料 → 27/2 年假衝刺 ⭐" },
   { label:"Vibe",       ranges:[[4,5]],  color:"#4A6FA5", sub:"各完成一個專案作品" },
   { label:"永豐（等）", ranges:[[12,15]],color:"#2F5D50", sub:"面試已完成，尚未發 offer；有 → 農曆年後到職" },
   { label:"求職備案",   ranges:[[14,15]],color:"#8B6914", sub:"若永豐沒下文 → 27/2 起才啟動面試準備與投遞" },
